@@ -36,16 +36,17 @@ typedef struct s_data
 int		pars1(t_data *data);
 int 	pars2(t_data *data);
 int 	pars3(t_data *data);
-int		ft_error(int t);
+void	ft_error(void);
 t_data	*init_data(t_data *data, char **argv, int argc);
 void	find_min_max(t_data *data, int p);
 void	find_median(t_data *data, int p);
 int		fill_stack_a(t_data *data);
 void	solve(t_data *data);
-void	solve_5_or_less(t_data *data, int lenn);
+void	solve_5_or_less(t_data *data);
 long	long_atoi(char *str);
 void	free_data(t_data *data);
 int		is_sorted(t_data *data);
+void	global_solve(t_data *data);
 
 void	swap_a(t_data *data, int p);
 void	swap_b(t_data *data, int p);

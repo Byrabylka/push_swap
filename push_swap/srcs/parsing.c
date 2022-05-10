@@ -31,7 +31,6 @@ int pars1(t_data *data)
 		}
 		i++;
 	}
-	//printf("a");
 	return (1);
 }
 
@@ -74,13 +73,8 @@ int pars3(t_data *data)
 	return (1);
 }
 
-int	ft_error(int t)
+void	ft_error(void)
 {
-	if (t == 1)
-		ft_putstr_fd("Error! Wrong arguments(no number)\n", 1);
-	else if (t == 2)
-		ft_putstr_fd("Error! Number out of bounds of integer\n", 1);
-	else if (t == 3)
-		ft_putstr_fd("Error! Repeating numbers\n", 1);
-	return (0);
+	ft_putstr_fd("Error\n", 6);
+	exit(1);
 }
