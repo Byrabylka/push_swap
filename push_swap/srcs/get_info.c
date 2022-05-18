@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_info.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fooswyn <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 15:40:54 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/03/29 17:09:04 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/05/18 20:56:48 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	find_median(t_data *data, int p)
 	int		i;
 	int		minn;
 	t_stack	*stack;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	data->median = -2147483648;
 	i = 0;

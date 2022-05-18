@@ -1,5 +1,16 @@
-#include "../incs/push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/18 20:57:00 by fooswyn           #+#    #+#             */
+/*   Updated: 2022/05/18 20:57:11 by fooswyn          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "../incs/push_swap.h"
 
 t_stack	*ft_lstnew(int content)
 {
@@ -12,7 +23,6 @@ t_stack	*ft_lstnew(int content)
 	elem->content = content;
 	return (elem);
 }
-
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {

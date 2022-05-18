@@ -6,7 +6,7 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:14:41 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/05/18 19:36:04 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/05/18 20:59:39 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	rotate_a(t_data *data, int p)
 {
 	t_stack	*tmp;
-	
+
 	if (ft_lstsize(data->a) <= 1)
 		return ;
 	tmp = data->a->next;
@@ -30,7 +30,7 @@ void	rotate_b(t_data *data, int p)
 	t_stack	*tmp;
 
 	if (ft_lstsize(data->b) <= 1)
-		return ;	
+		return ;
 	tmp = data->b->next;
 	ft_lstadd_back(&tmp, ft_lstnew(data->b->content));
 	data->b = tmp;
@@ -45,12 +45,10 @@ void	r_rotate(t_data *data)
 	ft_putstr_fd("rr\n", 1);
 }
 
-
-
 void	r_rotate_a(t_data *data, int p)
 {
 	t_stack	*tmp;
-	t_stack *tmp2;
+	t_stack	*tmp2;
 
 	if (ft_lstsize(data->a) <= 1)
 		return ;
@@ -64,13 +62,13 @@ void	r_rotate_a(t_data *data, int p)
 	tmp2->next = NULL;
 	data->a = tmp;
 	if (p)
-		ft_putstr_fd("rra\n", 1);	
+		ft_putstr_fd("rra\n", 1);
 }
 
 void	r_rotate_b(t_data *data, int p)
 {
 	t_stack	*tmp;
-	t_stack *tmp2;
+	t_stack	*tmp2;
 
 	if (ft_lstsize(data->b) <= 1)
 		return ;
@@ -82,5 +80,5 @@ void	r_rotate_b(t_data *data, int p)
 	tmp2->next = NULL;
 	data->b = tmp;
 	if (p)
-		ft_putstr_fd("rrb\n", 1);	
+		ft_putstr_fd("rrb\n", 1);
 }
