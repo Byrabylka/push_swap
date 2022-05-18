@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fooswyn <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/29 16:14:41 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/03/29 17:01:11 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/05/18 19:36:04 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	r_rotate(t_data *data)
 	ft_putstr_fd("rr\n", 1);
 }
 
+
+
 void	r_rotate_a(t_data *data, int p)
 {
 	t_stack	*tmp;
@@ -55,12 +57,11 @@ void	r_rotate_a(t_data *data, int p)
 	tmp = ft_lstnew(ft_lstlast(data->a)->content);
 	tmp2 = tmp;
 	tmp->next = data->a;
-//	printf("%d %d %d %d\n", tmp2->content, tmp2->next->content, tmp2->next->next->content, tmp2->next->next->next->content);
 	while (tmp2->next->next)
 	{
 		tmp2 = tmp2->next;
 	}
-	tmp->next = NULL;
+	tmp2->next = NULL;
 	data->a = tmp;
 	if (p)
 		ft_putstr_fd("rra\n", 1);	

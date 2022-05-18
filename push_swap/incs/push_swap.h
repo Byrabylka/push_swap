@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fooswyn <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 18:34:07 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/03/29 16:46:18 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/05/18 19:22:47 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	find_min_max(t_data *data, int p);
 void	find_median(t_data *data, int p);
 int		fill_stack_a(t_data *data);
 void	solve(t_data *data, int n);
-void	solve_5_or_less(t_data *data, int p);
+void	solve_5_or_less(t_data *data);
 void 	solve_5_or_less_b(t_data *data);
 long	long_atoi(char *str);
 void	free_data(t_data *data);
@@ -57,6 +57,7 @@ void	global_solve(t_data *data);
 
 int		ft_lstsize(t_stack *lst);
 t_stack	*ft_lstlast(t_stack *lst);
+t_stack	*ft_lst_copy(t_stack *lst);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 t_stack	*ft_lstnew(int content);

@@ -14,33 +14,32 @@
 
 void	find_min_max(t_data *data, int p)
 {
-	int		i;
 	t_stack	*stack;
 
-	i = 0;
+	data->max = -2147483648;
+	data->min = 2147483647;
 	if (p == 1)
 		stack = data->a;
 	else
 		stack = data->b;
-	while (i < ft_lstsize(stack))
+	while (stack)
 	{
 		if (stack->content >= data->max)
 			data->max = stack->content;
 		if (stack->content <= data->min)
 			data->min = stack->content;
 		stack = stack->next;
-		i++;
 	}
 }
 
 void	find_median(t_data *data, int p)
 {
 	int		i;
-	int		j;
 	int		minn;
 	t_stack	*stack;
 	t_stack *tmp;
 
+	data->median = -2147483648;
 	i = 0;
 	if (p == 1)
 		stack = data->a;
@@ -49,13 +48,11 @@ void	find_median(t_data *data, int p)
 	while (2 * i < ft_lstsize(stack))
 	{
 		minn = 2147483647;
-		j = 0;
 		tmp = stack;
-		while (j < ft_lstsize(tmp))
+		while (tmp)
 		{
 			if (tmp->content > data->median && tmp->content <= minn)
 				minn = tmp->content;
-			j++;
 			tmp = tmp->next;
 		}
 		data->median = minn;

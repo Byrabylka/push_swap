@@ -37,7 +37,6 @@ int pars1(t_data *data)
 int pars2(t_data *data)
 {
 	int			i;
-	int			j;
 	long int	tmp;
 
 	i = 1;

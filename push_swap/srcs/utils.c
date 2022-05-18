@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fooswyn <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 16:47:18 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/03/28 18:06:31 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/05/18 19:37:10 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ long	long_atoi(char *str)
 	return (n * sign);
 }
 
-int	is_sorted(t_data *data)
+int	is_sorted(t_stack *stack)
 {
 	t_stack	*tmp;
 
-	if (!data->a || data->b)
+	if (!stack)
 		return (0);
-	tmp = data->a;
+	tmp = stack;
 	while (tmp->next)
 	{
 		if (tmp->content > tmp->next->content)
@@ -51,6 +51,23 @@ int	is_sorted(t_data *data)
 	}
 	return (1);
 }
+
+int	is_sorted_b(t_stack *stack)
+{
+	t_stack	*tmp;
+
+	if (!stack)
+		return (0);
+	tmp = stack;
+	while (tmp->next)
+	{
+		if (tmp->content < tmp->next->content)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
 
 void	free_data(t_data *data)
 {
@@ -63,3 +80,29 @@ void	free_data(t_data *data)
 		free(data);
 	}
 }
+
+t_stack	*ft_predlast(t_stack *lst)
+{
+	t_stack	*list;
+
+	list = lst;
+	if (!list || !lst->next)
+		return (NULL);
+	while (list->next->next)
+		list = list->next;
+	return (list);
+}	
+
+void	ft_out(t_stack *a)
+{
+	t_stack	*tmp;
+
+	tmp = a;
+	while (tmp)
+	{
+		printf("%d ", tmp->content);
+		tmp = tmp->next;
+	}
+	printf("\n");	
+}
+

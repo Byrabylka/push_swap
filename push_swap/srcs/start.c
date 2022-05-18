@@ -29,7 +29,7 @@ int	fill_stack_a(t_data *data)
 		ft_error();
 	while (i < data->argc)
 	{
-		ft_lstadd_back(&data->a, ft_lstnew((int)ft_atoi(data->argv[i])));
+		ft_lstadd_back(&data->a, ft_lstnew((int)long_atoi(data->argv[i])));
 		i++;
 	}
 	if (!pars3(data))
@@ -48,5 +48,8 @@ t_data	*init_data(t_data *data, char **argv, int argc)
 	data->argc = argc;
 	data->argv = argv;
 	data->stack_len = 0;
+	data->max = -2147483648;
+	data->min = 2147483647;
+	data->median = -2147483648;
 	return (data);	
 }
