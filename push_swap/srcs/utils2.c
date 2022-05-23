@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/23 21:54:18 by fooswyn           #+#    #+#             */
+/*   Updated: 2022/05/23 21:55:11 by fooswyn          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incs/push_swap.h"
 
 int	ft_isdigit(int ch)
@@ -38,9 +50,9 @@ void	ft_lstclear(t_stack **lst)
 
 t_stack	*ft_lst_copy(t_stack *lst)
 {
-	t_stack *buff;
-	t_stack *new;
-	
+	t_stack	*buff;
+	t_stack	*new;
+
 	buff = lst;
 	new = NULL;
 	while (buff)
