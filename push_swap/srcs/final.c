@@ -6,7 +6,7 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:46:13 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/05/23 22:01:40 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/05/24 20:08:10 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@ int	check(t_stack *s)
 	t_stack	*tmp;
 
 	tmp = s;
-	while (tmp->next)
+	while (tmp->content)
 	{
-		if (tmp->content % 2 && tmp->next->content == tmp->content + 1)
+		if (tmp->content % 2 && \
+		tmp->next->content == tmp->content + 1 && tmp->content < 8)
 			return (0);
 		tmp = tmp->next;
 	}
 	tmp = s;
-	while (tmp->next)
+	while (tmp->content)
 	{
-		if (tmp->content && !(tmp->content % 2) && tmp->next->content == tmp->content - 1)
+		if (!(tmp->content % 2) && \
+		tmp->next->content == tmp->content - 1 && tmp->content < 8)
 			return (0);
 		tmp = tmp->next;
 	}
@@ -35,7 +37,7 @@ int	check(t_stack *s)
 
 int	close_or_no(int a, int b)
 {
-	if ((a == b + 1 || a == b - 1) && a != 3 && b != 3 && a <= 8 && b <= 8)
+	if ((a == b + 1 || a == b - 1) && a != 3 && b != 3 && a <= 8 && b <= 8 && !(ft_max(a, b) % 2))
 		return (1);
 	return (0);
 }
@@ -72,7 +74,7 @@ void	ft_final_out(t_data *data)
 
 	i = 0;
 	tmp = data->commands;
-	while (i++ < 3)
+	while (i++ < 5)
 		ft_lstadd_back(&tmp, ft_lstnew(0));
 	less_commands(tmp);
 	while (tmp->content)

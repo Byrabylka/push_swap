@@ -6,7 +6,7 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 16:36:16 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/05/23 21:56:41 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/05/24 20:18:40 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,38 @@ void	solve_3(t_data *data, t_stack *d)
 	a = d->content;
 	b = d->next->content;
 	c = d->next->next->content;
-	if (a < b && b < c)
+	if (a < b && b < c) //1 2 3
 		return ;
-	if (a < c && c < b)
+	else if (a < c && c < b) //1 3 2
 	{
-		r_rotate_a(data);
+		push_b(data);
+		swap_a(data);
+		push_a(data);
+	}
+	else if (b < a && a < c)  //2 1 3
+		swap_a(data);
+	else if (a < b && c < a)  //2 3 1
+	{
+		push_b(data);
+		swap_a(data);
+		push_a(data);
 		swap_a(data);
 	}
-	else if (b < a && a < c)
-		swap_a(data);
-	else if (a < b && c < a)
-		r_rotate_a(data);
-	else if (b < c && c < a)
-		rotate_a(data);
-	else
+	else if (b < c && c < a) // 3 1 2
 	{
 		swap_a(data);
+		push_b(data);
+		swap_a(data);
+		push_a(data);
+	}
+	else // 3 2 1
+	{
+		push_b(data);
+		push_b(data);    
+		swap_b(data);
+		rotate_a(data);
+		push_a(data);
+		push_a(data);
 		r_rotate_a(data);
 	}
 }
