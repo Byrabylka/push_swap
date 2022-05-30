@@ -6,7 +6,7 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 17:05:20 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/05/24 20:20:08 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/05/25 17:36:47 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,22 +57,6 @@ void	solve_3_b(t_data *data, t_stack *d)
 	}
 }
 
-void	solve_4_b(t_data *data)
-{
-	find_min_max(data, 0);
-	if (ft_lstlast(data->b)->content != data->max)
-		while (data->b->content != data->max)
-			rotate_b(data);
-	else
-		while (data->b->content != data->max)
-			r_rotate_b(data);
-	if (is_sorted_b(data->b))
-		return ;
-	push_a(data);
-	solve_3_b(data, data->b);
-	push_b(data);
-}
-
 void	solve_4_or_less_b(t_data *data)
 {
 	t_stack	*stack;
@@ -84,6 +68,4 @@ void	solve_4_or_less_b(t_data *data)
 		swap_b(data);
 	else if (ft_lstsize(stack) == 3)
 		solve_3_b(data, stack);
-	else if (ft_lstsize(stack) == 4)
-		solve_4_b(data);
 }

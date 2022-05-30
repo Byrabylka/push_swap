@@ -10,7 +10,7 @@ SRC_PATH    = ./srcs
 SRCS = $(addprefix $(SRC_PATH)/,$(SOURCES))
 OBJS = $(addprefix $(OBJ_PATH)/,$(SOURCES:.c=.o))
 
-SOURCES = ft_split.c get_info.c list_utils.c main.c operations1.c operations2.c operations3.c parsing.c solve_4_or_less.c solve_4_or_less_b.c solve.c start.c utils.c utils2.c utils3.c final.c
+SOURCES = ft_split.c get_info.c list_utils.c main.c operations1.c operations2.c operations3.c parsing.c solve_5_from_start.c solve_4_or_less.c solve_4_or_less_b.c solve.c start.c utils.c utils2.c utils3.c final.c
             
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c $(HEADER) Makefile
 			@mkdir -p objs

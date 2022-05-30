@@ -6,7 +6,7 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 18:34:07 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/05/23 22:03:01 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/05/25 17:52:03 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void	find_min_max(t_data *data, int p);
 void	find_median(t_data *data, int p);
 int		fill_stack_a(t_data *data);
 
-void	solve(t_data *data, int n);
+void 	solve_5_from_start(t_data *data);
+void	solve(t_data *data, int p, int t);
 void	solve_4_or_less(t_data *data);
 void	solve_4_or_less_b(t_data *data);
 int		is_sorted(t_stack *stack);
@@ -62,6 +63,8 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	ft_lstclear(t_stack **lst);
 int		ft_lstsize(t_stack *lst);
+int		ft_lstmax(t_stack *stack);
+int		ft_lstmin(t_stack *stack);
 
 int		ft_max(int a, int b);
 int		ft_strlen(const char *str);

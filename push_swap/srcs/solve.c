@@ -6,13 +6,13 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 16:26:26 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/05/24 20:29:14 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/05/25 18:01:05 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-void	solve2(t_data *data, int border, int curr_median, int p)
+void	solve2(t_data *data, int border, int curr_median, int p, int t)
 {
 	int		i;
 	int		j;
@@ -34,25 +34,25 @@ void	solve2(t_data *data, int border, int curr_median, int p)
 			j++;
 		}
 	}
-	while (j)	
+	while (j && !t)	
 	{
 		r_rotate_stack(data, p);
 		j--;
 	}
 }
 
-void	solve3(t_data *data, int p)
+void	solve3(t_data *data, int p, int t)
 {
 	t_stack	*curr_a;
 	t_stack	*curr_b;
 
 	curr_b = ft_lst_copy(data->b);
-	data->b = 0;
-	solve(data, 1);
+	data->b = 0;	
+	solve(data, 1, t);
 	curr_a = ft_lst_copy(data->a);
 	data->b = curr_b;
 	data->a = 0;
-	solve(data, 0);
+	solve(data, 0, 0);
 	data->a = curr_a;
 	if (p)
 		while (ft_lstsize(data->b) > 0)
@@ -62,7 +62,7 @@ void	solve3(t_data *data, int p)
 			push_b(data);
 }
 
-void	solve(t_data *data, int p)
+void	solve(t_data *data, int p, int t)
 {
 	t_stack	*stack;
 	int		i;
@@ -82,7 +82,7 @@ void	solve(t_data *data, int p)
 	else
 	{
 		border = ft_lstsize(stack);
-		solve2(data, border, curr_median, p);
-		solve3(data, p);
+		solve2(data, border, curr_median, p, t);
+		solve3(data, p, t);
 	}
 }
