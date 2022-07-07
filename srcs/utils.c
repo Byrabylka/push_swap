@@ -6,7 +6,7 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 16:47:18 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/05/18 19:37:10 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/05/24 18:48:47 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,19 +68,6 @@ int	is_sorted_b(t_stack *stack)
 	return (1);
 }
 
-
-void	free_data(t_data *data)
-{
-	if (data)
-	{
-		if (data->a)
-			ft_lstclear(&data->a);
-		if (data->b)
-			ft_lstclear(&data->b);
-		free(data);
-	}
-}
-
 t_stack	*ft_predlast(t_stack *lst)
 {
 	t_stack	*list;
@@ -91,7 +78,14 @@ t_stack	*ft_predlast(t_stack *lst)
 	while (list->next->next)
 		list = list->next;
 	return (list);
-}	
+}
+
+int	ft_max(int a, int b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
 
 void	ft_out(t_stack *a)
 {
@@ -103,6 +97,5 @@ void	ft_out(t_stack *a)
 		printf("%d ", tmp->content);
 		tmp = tmp->next;
 	}
-	printf("\n");	
+	printf("\n");
 }
-

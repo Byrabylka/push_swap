@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fooswyn <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 17:58:50 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/03/28 17:52:07 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/05/23 21:58:48 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-int pars1(t_data *data)
+int	pars1(t_data *data)
 {
 	int	i;
 	int	j;
@@ -34,7 +34,7 @@ int pars1(t_data *data)
 	return (1);
 }
 
-int pars2(t_data *data)
+int	pars2(t_data *data)
 {
 	int			i;
 	long int	tmp;
@@ -43,18 +43,18 @@ int pars2(t_data *data)
 	while (i < data->argc)
 	{
 		tmp = long_atoi(data->argv[i]);
-		if (tmp  > 2147483647 || tmp  < -2147483648)
+		if (tmp > 2147483647 || tmp < -2147483648)
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
-int pars3(t_data *data)
+int	pars3(t_data *data)
 {
-	t_stack *tmp;
-	t_stack *tmp2;
-	
+	t_stack	*tmp;
+	t_stack	*tmp2;
+
 	tmp = data->a;
 	while (tmp->next)
 	{
@@ -74,6 +74,6 @@ int pars3(t_data *data)
 
 void	ft_error(void)
 {
-	ft_putstr_fd("Error\n", 6);
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
