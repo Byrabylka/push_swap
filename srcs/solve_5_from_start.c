@@ -14,28 +14,27 @@
 
 void	solve_03(t_data *data, t_stack *d)
 {
-	int a;
+	int	a;
 	int	b;
 	int	c;
 
 	a = d->content;
 	b = d->next->content;
 	c = d->next->next->content;
-	find_min_max(data, 1);
-	if (a < b && b < c)   // 1 2 3
-		return;
-	if (a < c &&  c < b) // 1 3 2
+	if (a < b && b < c)
+		return ;
+	if (a < c && c < b)
 	{
 		r_rotate_a(data);
 		swap_a(data);
 	}
-	else if (b < a && a < c) //2 1 3
+	else if (b < a && a < c)
 		swap_a(data);
-	else if (a < b && c < a)  //2 3 1
+	else if (a < b && c < a)
 		r_rotate_a(data);
-	else if (b < c && c < a) // 3 1 2
+	else if (b < c && c < a)
 		rotate_a(data);
-	else   // 3 2 1
+	else
 	{
 		swap_a(data);
 		r_rotate_a(data);
@@ -44,7 +43,6 @@ void	solve_03(t_data *data, t_stack *d)
 
 void	solve_04(t_data *data)
 {
-
 	find_min_max(data, 1);
 	if (ft_lstlast(data->a)->content != data->min)
 		while (data->a->content != data->min)
@@ -53,7 +51,7 @@ void	solve_04(t_data *data)
 		while (data->a->content != data->min)
 			r_rotate_a(data);
 	if (is_sorted(data->a))
-		return;
+		return ;
 	push_b(data);
 	solve_03(data, data->a);
 	push_a(data);
@@ -62,24 +60,25 @@ void	solve_04(t_data *data)
 void	solve_5(t_data *data)
 {
 	find_min_max(data, 1);
-	if (ft_lstlast(data->a)->content != data->min && ft_predlast(data->a)->content != data->min)
+	if (ft_lstlast(data->a)->content != data->min
+		&& ft_predlast(data->a)->content != data->min)
 		while (data->a->content != data->min)
 			rotate_a(data);
 	else
 		while (data->a->content != data->min)
 			r_rotate_a(data);
 	if (is_sorted(data->a))
-		return;
+		return ;
 	push_b(data);
 	solve_04(data);
-	push_a(data);	
+	push_a(data);
 }
-void solve_5_from_start(t_data *data)
+
+void	solve_5_from_start(t_data *data)
 {
 	t_stack	*stack;
 
 	stack = data->a;
-
 	if (ft_lstsize(stack) == 2)
 		swap_a(data);
 	else if (ft_lstsize(stack) == 3)

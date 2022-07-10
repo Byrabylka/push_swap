@@ -1,31 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/26 16:50:06 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/07/10 19:09:15 by fooswyn          ###   ########.fr       */
+/*   Created: 2022/07/10 17:52:20 by fooswyn           #+#    #+#             */
+/*   Updated: 2022/07/10 19:10:26 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../incs/push_swap.h"
 
-int	main(int argc, char **argv)
+int	check_f(int a, int b)
 {
-	t_data	*data;
+	return ((a == 3 && b == 4) || (a == 4 && b == 3));
+}
 
-	data = NULL;
-	if (argc < 2)
-		ft_error();
-	data = init_data(data, argv, argc);
-	if (!fill_stack_a(data))
-		ft_error();
-	if (!is_sorted(data->a) && ft_lstsize(data->a) > 5)
-		solve(data, 1, 1);
-	if (!is_sorted(data->a) && ft_lstsize(data->a) <= 5)
-		solve_5_from_start(data);
-	ft_final_out(data);
-	free_data(data);
+void	ft_out(t_stack *a)
+{
+	t_stack	*tmp;
+
+	tmp = a;
+	while (tmp)
+	{
+		printf("%d ", tmp->content);
+		tmp = tmp->next;
+	}
+	printf("\n");
+}
+
+int	space_count(char *s)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		if (s[i] == ' ')
+			count++;
+		i++;
+	}
+	return (count);
 }

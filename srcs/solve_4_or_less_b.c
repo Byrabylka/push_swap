@@ -12,6 +12,32 @@
 
 #include "../incs/push_swap.h"
 
+void	solve_3_b_2(t_data *data, int a, int b, int c)
+{
+	if (a < c && c < b)
+	{
+		swap_b(data);
+		push_a(data);
+		swap_b(data);
+		push_b(data);
+	}
+	else if (b < a && a < c)
+	{
+		push_a(data);
+		swap_b(data);
+		push_b(data);
+		swap_b(data);
+	}
+	else if (c < a && a < b)
+		swap_b(data);
+	else if (b < c && c < a)
+	{
+		push_a(data);
+		swap_b(data);
+		push_b(data);
+	}	
+}
+
 void	solve_3_b(t_data *data, t_stack *d)
 {
 	int	a;
@@ -21,40 +47,20 @@ void	solve_3_b(t_data *data, t_stack *d)
 	a = d->content;
 	b = d->next->content;
 	c = d->next->next->content;
-	if (a > b && b > c) // 3 2 1
+	if (a > b && b > c)
 		return ;
-	if (a < b && b < c) // 1 2 3
+	if (a < b && b < c)
 	{
 		push_a(data);
-		push_a(data);    
+		push_a(data);
 		swap_a(data);
 		rotate_b(data);
 		push_b(data);
 		push_b(data);
 		r_rotate_b(data);
 	}
-	else if (a < c && c < b) // 1 3 2
-	{
-		swap_b(data);
-		push_a(data);
-		swap_b(data);
-		push_b(data);
-	}
-	else if (b < a && a < c) // 2 1 3
-	{
-		push_a(data);
-		swap_b(data);
-		push_b(data);
-		swap_b(data);
-	}
-	else if (c < a && a < b) // 2 3 1
-		swap_b(data);
-	else if (b < c && c < a) // 3 1 2
-	{
-		push_a(data);
-		swap_b(data);
-		push_b(data);
-	}
+	else
+		solve_3_b_2(data, a, b, c);
 }
 
 void	solve_4_or_less_b(t_data *data)

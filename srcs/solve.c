@@ -34,7 +34,7 @@ void	solve2(t_data *data, int border, int c, int pt)
 			j++;
 		}
 	}
-	while (j && !(pt % 2))	
+	while (j && !(pt % 2))
 	{
 		r_rotate_stack(data, (pt / 2));
 		j--;

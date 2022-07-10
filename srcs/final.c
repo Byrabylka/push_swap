@@ -6,7 +6,7 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 19:46:13 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/05/24 20:08:10 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/07/10 19:09:52 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,20 +55,17 @@ void	less_commands(t_stack *s)
 		while (tmp->content != 0)
 		{
 			max = ft_max(tmp->next->content, tmp->next->next->content);
+			tmp2 = tmp->next;
 			if (close_or_no(tmp->next->content, tmp->next->next->content))
 			{
 				tmp->next->next->content = (max * max - 2 * max + 216) / 24;
-				tmp2 = tmp->next;
 				tmp->next = tmp->next->next;
 				free(tmp2);
 			}
-			if ((tmp->next->content == 3 && tmp->next->next->content == 4)
-				|| (tmp->next->content == 4 && tmp->next->next->content == 3))
+			if (check_f(tmp->next->content, tmp->next->next->content))
 			{
-				tmp2 = tmp->next;
 				tmp->next = tmp->next->next->next;
-				free(tmp2->next);
-				free(tmp2);
+				free_n(tmp2, 2);
 			}
 			tmp = tmp->next;
 		}				
@@ -95,10 +92,7 @@ void	less_commands2(t_stack *s)
 				tmp2 = tmp->next;
 				tmp->next = tmp->next->next->next->next->next;
 				tmp->next->content = be;
-				free(tmp2->next->next->next);
-				free(tmp2->next->next);
-				free(tmp2->next);
-				free(tmp2);
+				free_n(tmp2, 4);
 				flag = 1;
 			}
 			tmp = tmp->next;
@@ -113,6 +107,8 @@ void	ft_final_out(t_data *data)
 
 	i = 0;
 	tmp = data->commands;
+	if (!ft_lstsize(tmp))
+		return ;
 	ft_lstadd_front(&tmp, ft_lstnew(-1));
 	while (i++ < 5)
 		ft_lstadd_back(&tmp, ft_lstnew(0));

@@ -6,7 +6,7 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 16:47:18 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/05/24 18:48:47 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/07/10 18:03:18 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,17 +85,4 @@ int	ft_max(int a, int b)
 	if (a > b)
 		return (a);
 	return (b);
-}
-
-void	ft_out(t_stack *a)
-{
-	t_stack	*tmp;
-
-	tmp = a;
-	while (tmp)
-	{
-		printf("%d ", tmp->content);
-		tmp = tmp->next;
-	}
-	printf("\n");
 }

@@ -64,6 +64,24 @@ int	ahahah(t_stack *s)
 	return (0);
 }
 
+void	free_n(t_stack *a, int n)
+{
+	t_stack	*tmp;
+	int		i;
+
+	if (!n)
+		return ;
+	i = 1;
+	tmp = a;
+	while (i < n)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	free(tmp);
+	free_n(a, n - 1);
+}
+
 void	free_data(t_data *data)
 {
 	ft_lstclear(&data->a);

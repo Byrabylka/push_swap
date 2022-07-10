@@ -6,7 +6,7 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 17:08:41 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/05/23 21:53:15 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/07/10 19:07:55 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	fill_stack_a(t_data *data)
 	char	**new_argv;
 
 	i = 1;
-	if (data->argc == 2)
+	if (data->argc == 2 && space_count(data->argv[1]))
 	{
 		new_argv = ft_split(data->argv[1], ' ');
 		while (new_argv[i - 1])
@@ -40,6 +40,7 @@ int	fill_stack_a(t_data *data)
 			data->argv[i - 1] = new_argv[i - 1];
 			i++;
 		}
+		data->argv[i - 1] = NULL;
 		i = 0;
 	}
 	if (!pars1(data) || !pars2(data))
