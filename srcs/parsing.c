@@ -6,7 +6,7 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/26 17:58:50 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/07/10 18:56:02 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/07/11 17:49:44 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ int	pars1(t_data *data)
 	while (i < data->argc)
 	{
 		j = 0;
+		if (data->argv[i][j] == '-' && ft_strlen(data->argv[i]) > 1)
+			j++;
 		while (data->argv[i][j])
 		{
-			if (!ft_isdigit(data->argv[i][j]) && data->argv[i][j] != '-')
-			{
+			if (!ft_isdigit(data->argv[i][j]))
 				return (0);
-			}
 			j++;
 		}
 		i++;

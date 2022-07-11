@@ -6,7 +6,7 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 16:26:26 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/05/25 18:01:05 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/07/11 17:57:59 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	solve2(t_data *data, int border, int c, int pt)
 	j = 0;
 	while (2 * i + 2 <= border)
 	{
-		stack = (pt / 2) ? data->a : data->b;
-		if ((pt / 2) ? stack->content <= c : stack->content > c)
+	stack = tern0(pt / 2, data->a, data->b);
+		if (tern3(pt / 2, stack->content, c))
 		{
-			(pt / 2) ? push_b(data) : push_a(data);
+			tern1(pt / 2, data);
 			i++;
 		}
 		else
@@ -68,7 +68,7 @@ void	solve(t_data *data, int p, int t)
 	int		border;
 	int		curr_median;
 
-	stack = p ? data->a : data->b;
+	stack = tern0(p, data->a, data->b);
 	if ((p && is_sorted(data->a)) || (!p && is_sorted_b(data->b)))
 		return ;
 	find_median(data, p);
@@ -76,7 +76,7 @@ void	solve(t_data *data, int p, int t)
 	if (ft_lstsize(stack) % 2 && p)
 		curr_median--;
 	if (ft_lstsize(stack) < 4)
-		p ? solve_4_or_less(data) : solve_4_or_less_b(data);
+		tern2(p, data);
 	else
 	{
 		border = ft_lstsize(stack);

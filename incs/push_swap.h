@@ -6,7 +6,7 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/21 18:34:07 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/07/10 19:50:30 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/07/11 18:01:34 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,11 @@ void	ft_putstr_fd(char *s, int fd);
 char	**ft_split(char const *s, char c);
 int		check_f(int a, int b);
 int		space_count(char *s);
+
+t_stack	*tern0(int p, t_stack *a, t_stack *b);
+void	tern1(int p, t_data *data);
+void	tern2(int p, t_data *data);
+int		tern3(int p, int content, int c);
 
 void	swap_a(t_data *data);
 void	swap_b(t_data *data);

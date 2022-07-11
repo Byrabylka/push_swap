@@ -6,7 +6,7 @@
 /*   By: fooswyn <fooswyn@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 21:16:11 by fooswyn           #+#    #+#             */
-/*   Updated: 2022/05/25 17:51:47 by fooswyn          ###   ########.fr       */
+/*   Updated: 2022/07/11 18:13:27 by fooswyn          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,5 @@ void	free_data(t_data *data)
 	ft_lstclear(&data->a);
 	ft_lstclear(&data->commands);
 	ft_lstclear(&data->b);
+	free(data);
 }
